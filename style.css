@@ -1,0 +1,197 @@
+/* RIZA HUSEN - 2611700017 - DARK SIDEBAR MODE */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Manrope', sans-serif; }
+
+body {
+  background: #0a0c10;
+  color: #e5e7eb;
+  display: flex; /* INI KUNCINYA BIAR MENU DI PINGGIR */
+}
+
+/* ===== NAVBAR JADI SIDEBAR KIRI ===== */
+.navbar-cv {
+  width: 260px;
+  height: 100vh;
+  background: #111318;
+  border-right: 1px solid #1f242f;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 18px;
+  gap: 6px;
+  z-index: 100;
+}
+
+.navbar-cv::before {
+  content: 'RIZA H. CV';
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  color: white;
+  margin-bottom: 10px;
+  padding: 0 12px;
+}
+
+.navbar-cv::after {
+  content: 'Sistem Informasi - 2611700017';
+  font-size: 11px;
+  color: #6b7280;
+  padding: 0 12px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.navbar-cv a {
+  text-decoration: none;
+  color: #9ca3af;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 13px 16px;
+  border-radius: 10px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+/* ICON OTOMATIS */
+.navbar-cv a[href*="index"]::before { content:'📄 '; margin-right:8px; }
+.navbar-cv a[href*="profile"]::before { content:'👤 '; margin-right:8px; }
+.navbar-cv a[href*="education"]::before { content:'🎓 '; margin-right:8px; }
+.navbar-cv a[href*="about"]::before { content:'💼 '; margin-right:8px; }
+.navbar-cv a[href*="hobies"]::before { content:'⚡ '; margin-right:8px; }
+.navbar-cv a[href*="foto"]::before { content:'☄️ '; margin-right:8px; }
+
+.navbar-cv a:hover {
+  background: #1a1e29;
+  color: white;
+  transform: translateX(4px);
+}
+
+.navbar-cv a:first-of-type {
+  color: white;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+}
+
+/* ===== CONTENT WRAPPER GESER KANAN ===== */
+.cv-wrapper {
+  margin-left: 260px; /* SEJAJAR SAMA LEBAR SIDEBAR */
+  width: calc(100% - 260px);
+  min-height: 100vh;
+  display: flex;
+  background: #0a0c10;
+}
+
+/* SIDEBAR DALAM (FOTO & DATA) */
+.sidebar {
+  width: 340px;
+  background: #111318;
+  border-right: 1px solid #1f242f;
+  padding: 35px 28px;
+}
+
+.foto-cv {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #252b38;
+  margin-bottom: 25px;
+}
+
+.sidebar h2 {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #60a5fa;
+  margin: 26px 0 10px;
+  text-transform: uppercase;
+}
+
+.sidebar p {
+  font-size: 13px;
+  color: #a1a1aa;
+  line-height: 1.9;
+}
+
+/* MAIN KAN */
+.main {
+  flex: 1;
+  padding: 45px 50px;
+  background: #0a0c10;
+}
+
+.main h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+.job-title {
+  display: inline-block;
+  margin: 14px 0 30px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #93c5fd;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: white;
+  margin: 35px 0 12px;
+  text-transform: uppercase;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.section-title::before {
+  content:'';
+  width: 20px;
+  height: 2px;
+  background: #2563eb;
+}
+
+.info-box {
+  background: #111318;
+  border: 1px solid #1f242f;
+  border-radius: 14px;
+  padding: 20px 22px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d4d4d8;
+}
+
+.info-box:hover {
+  border-color: #2563eb;
+  background: #151a25;
+}
+
+.info-box b { color: white; }
+
+/* HP RESPONSIVE */
+@media(max-width: 900px){
+  body { flex-direction: column; }
+  .navbar-cv { 
+    position: relative; 
+    width: 100%; 
+    height: auto; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  .navbar-cv::before, .navbar-cv::after { display: none; }
+  .cv-wrapper { margin-left:0; width:100%; flex-direction:column; }
+  .sidebar { width:100%; }
+}
